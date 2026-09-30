@@ -76,6 +76,6 @@ Market research (Faz 1) for this app is already done and approved; the product b
 * **Language:** talk to the user in Turkish. Code, identifiers, comments, commit messages and docs are in English.
 * **No AI attribution, anywhere.** No `Co-Authored-By: Claude`, no "Generated with Claude Code", no session links, no "written by AI" wording in commits, PR descriptions, code comments or docs. `.claude/settings.json` turns the automatic trailers off; do not add them by hand either.
 * **Plan before features.** For any feature beyond a small fix: propose the approach (files, data flow, libraries) and wait for approval, then implement with a verifiable success criterion.
-* **Cloud sessions can't run the app.** There is no emulator, device or Expo Go in the cloud. Verify with `npx tsc --noEmit`, `npx expo-doctor`, the linter and unit tests. Do not start `expo start`, EAS builds or anything that needs a device. The user tests on a physical device locally.
-* **Branch and PR.** Work on a feature branch, push it, and open a PR with a short description of what changed and how it was verified.
+* **Verify every change.** `npx tsc --noEmit`, the linter and unit tests must pass. UI and notification behaviour is checked on the Android emulator locally; the user checks iOS on a physical iPhone. In a cloud session there is no emulator or device: verify with the automated checks only and say what remains untested.
+* **Commit in small, verifiable steps** on `main` with clear messages. Push only when the user asks.
 * **Secrets** never go into the repo. RevenueCat/API keys are read from `app.config.ts` `extra` + EAS secrets or environment variables.
